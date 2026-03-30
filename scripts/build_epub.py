@@ -3,7 +3,7 @@
 # dependencies = ["ebooklib", "markdown", "beautifulsoup4", "httpx", "pillow", "tenacity"]
 # ///
 """
-Build an EPUB from the Claude How-To markdown files.
+Build an EPUB from the Codex How-To markdown files.
 
 Usage:
     Run from the repository root directory:
@@ -15,7 +15,7 @@ Usage:
 
     Command-line options:
         --root, -r      Root directory containing markdown files (default: repo root)
-        --output, -o    Output EPUB file path (default: <root>/claude-howto-guide.epub)
+        --output, -o    Output EPUB file path (default: <root>/codex-howto-guide.epub)
         --verbose, -v   Enable verbose logging
         --timeout       Timeout for API requests in seconds (default: 30)
         --max-concurrent Maximum concurrent API requests (default: 10)
@@ -24,7 +24,7 @@ Usage:
     automatically install required packages in an isolated environment.
 
 Output:
-    Creates 'claude-howto-guide.epub' in the repository root directory.
+    Creates 'codex-howto-guide.epub' in the repository root directory.
 
 Features:
     - Organizes chapters by folder structure (01-slash-commands, etc.)
@@ -37,7 +37,7 @@ Features:
 Requirements:
     - uv (recommended) or Python 3.10+ with dependencies installed
     - Internet connection for Mermaid diagram rendering
-    - Repository structure with markdown files and claude-howto-logo.png
+    - Repository structure with markdown files and a project logo image
 """
 
 from __future__ import annotations
@@ -111,10 +111,10 @@ class EPUBConfig:
     logo_path: Path | None = None
 
     # EPUB Metadata
-    identifier: str = "claude-howto-guide"
-    title: str = "Claude Code How-To Guide"
+    identifier: str = "codex-howto-guide"
+    title: str = "Codex How-To Guide"
     language: str = "en"
-    author: str = "Claude Code Community"
+    author: str = "Codex How-To Contributors"
 
     # Cover Settings
     cover_width: int = 600
@@ -193,6 +193,11 @@ def setup_logging(verbose: bool = False) -> logging.Logger:
     return logging.getLogger("epub_builder")
 
 
+def _resolve_default_logo_path(root_path: Path) -> Path:
+    """Pick the default project logo path."""
+    return root_path / "codex-howto-logo.png"
+
+
 # =============================================================================
 # Input Validation
 # =============================================================================
@@ -216,7 +221,7 @@ def validate_inputs(config: EPUBConfig, logger: logging.Logger) -> None:
         errors.append(f"Output directory is not writable: {output_dir}")
 
     # Check logo if specified
-    logo_path = config.logo_path or (config.root_path / "claude-howto-logo.png")
+    logo_path = config.logo_path or _resolve_default_logo_path(config.root_path)
     if not logo_path.exists():
         logger.warning(
             f"Logo file not found: {logo_path}. Cover will be generated without logo."
@@ -391,17 +396,18 @@ def get_chapter_order() -> list[tuple[str, str]]:
     """Define the order of chapters based on folder structure."""
     return [
         ("README.md", "Introduction"),
-        ("LEARNING-ROADMAP.md", "Learning Roadmap"),
         ("QUICK_REFERENCE.md", "Quick Reference"),
-        ("claude_concepts_guide.md", "Claude Concepts Guide"),
+        ("LEARNING-ROADMAP.md", "Learning Roadmap"),
+        ("codex_concepts_guide.md", "Codex Concepts"),
+        ("10-cli", "CLI"),
         ("01-slash-commands", "Slash Commands"),
-        ("02-memory", "Memory"),
+        ("02-agents-md", "AGENTS.md"),
         ("03-skills", "Skills"),
         ("04-subagents", "Subagents"),
-        ("05-mcp", "MCP Protocol"),
+        ("05-mcp", "Model Context Protocol"),
         ("06-hooks", "Hooks"),
         ("07-plugins", "Plugins"),
-        ("08-checkpoints", "Checkpoints"),
+        ("08-safe-iteration", "Safe Iteration"),
         ("09-advanced-features", "Advanced Features"),
         ("resources.md", "Resources"),
     ]
@@ -582,8 +588,8 @@ def _draw_text_centered(
 def create_cover_image(
     config: EPUBConfig,
     logger: logging.Logger,
-    title: str = "Claude Code\nHow-To Guide",
-    subtitle: str = "Complete Guide to Claude Code Features",
+    title: str = "Codex\nHow-To Guide",
+    subtitle: str = "Practical guide to Codex workflows",
 ) -> bytes:
     """Create a cover image with proper error handling."""
     try:
@@ -597,7 +603,7 @@ def create_cover_image(
         subtitle_font = load_font(config.subtitle_font_paths, 24, logger)
 
         # Add logo if available
-        logo_path = config.logo_path or (config.root_path / "claude-howto-logo.png")
+        logo_path = config.logo_path or _resolve_default_logo_path(config.root_path)
         if logo_path.exists():
             _add_logo_to_cover(cover, logo_path, config, logger)
         else:
@@ -998,7 +1004,7 @@ def create_epub(root_path: Path, output_path: Path, verbose: bool = False) -> Pa
 def main() -> int:
     """Main entry point with CLI argument parsing."""
     parser = argparse.ArgumentParser(
-        description="Build an EPUB from Claude How-To markdown files."
+        description="Build an EPUB from Codex How-To markdown files."
     )
     parser.add_argument(
         "--root",
@@ -1012,7 +1018,7 @@ def main() -> int:
         "-o",
         type=Path,
         default=None,
-        help="Output EPUB file path (default: <root>/claude-howto-guide.epub)",
+        help="Output EPUB file path (default: <root>/codex-howto-guide.epub)",
     )
     parser.add_argument(
         "--verbose", "-v", action="store_true", help="Enable verbose logging"
@@ -1039,7 +1045,7 @@ def main() -> int:
         root = Path(__file__).parent.parent
 
     root = root.resolve()
-    output = args.output or (root / "claude-howto-guide.epub")
+    output = args.output or (root / "codex-howto-guide.epub")
     output = output.resolve()
 
     logger = setup_logging(args.verbose)

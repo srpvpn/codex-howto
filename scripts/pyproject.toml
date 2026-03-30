@@ -1,7 +1,7 @@
 [project]
-name = "claude-howto"
+name = "codex-howto"
 version = "1.0.0"
-description = "Claude Code How-To Guide with EPUB builder"
+description = "Codex How-To Guide with EPUB builder"
 readme = "README.md"
 license = "MIT"
 requires-python = ">=3.10"
@@ -21,7 +21,7 @@ dev = [
 ]
 
 [tool.pytest.ini_options]
-testpaths = ["scripts/tests"]
+testpaths = ["tests"]
 asyncio_mode = "auto"
 asyncio_default_fixture_loop_scope = "function"
 python_files = ["test_*.py"]
@@ -33,7 +33,7 @@ requires = ["setuptools>=61.0"]
 build-backend = "setuptools.build_meta"
 
 [tool.setuptools.packages.find]
-where = ["scripts"]
+where = ["."]
 include = ["build_epub"]
 exclude = ["tests", "tests.*"]
 

@@ -36,10 +36,8 @@
 
   <!-- === WORDMARK === -->
   <g transform="translate(140, 0)">
-    <!-- "Claude" -->
-    <text x="0" y="62" font-family="'Inter', 'SF Pro Display', '-apple-system', 'Segoe UI', sans-serif" font-size="42" font-weight="700" fill="#FFFFFF" letter-spacing="-0.5">
-      Claude
-    </text>
+    <!-- "Codex" -->
+    <text x="0" y="62" font-family="'Inter', 'SF Pro Display', '-apple-system', 'Segoe UI', sans-serif" font-size="42" font-weight="700" fill="#FFFFFF" letter-spacing="-0.5">Codex</text>
 
     <!-- "How-To" -->
     <text x="0" y="98" font-family="'Inter', 'SF Pro Display', '-apple-system', 'Segoe UI', sans-serif" font-size="32" font-weight="500" fill="rgba(255,255,255,0.6)" letter-spacing="0">
@@ -54,7 +52,7 @@
       VISUAL GUIDE
     </text>
     <text x="195" y="68" font-family="'Inter', 'SF Pro Display', '-apple-system', 'Segoe UI', sans-serif" font-size="10" font-weight="500" fill="rgba(255,255,255,0.5)" letter-spacing="1.5">
-      TO CLAUDE CODE
+      TO CODEX
     </text>
   </g>
 </svg>

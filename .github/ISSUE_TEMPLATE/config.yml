@@ -1,11 +1,11 @@
 blank_issues_enabled: false
 contact_links:
-  - name: Claude Code Documentation
-    url: https://code.claude.com/docs/en/overview
-    about: Official Claude Code documentation
+  - name: Codex Documentation
+    url: https://developers.openai.com/codex
+    about: Official Codex developer documentation
   - name: Discussions
-    url: https://github.com/luongnv89/claude-howto/discussions
+    url: https://github.com/srpvpn/codex-howto/discussions
     about: Ask questions and share ideas with the community
-  - name: Anthropic Cookbook
-    url: https://github.com/anthropics/anthropic-cookbook
-    about: Official examples and guides from Anthropic
+  - name: OpenAI Community
+    url: https://community.openai.com/
+    about: Community help for OpenAI and Codex-related questions

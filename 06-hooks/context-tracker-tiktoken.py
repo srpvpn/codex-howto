@@ -32,24 +32,22 @@ except ImportError:
     )
 
 # Configuration
-CONTEXT_LIMIT = 128000  # Claude's context window (adjust for your model)
+CONTEXT_LIMIT = 128000  # Example context budget; adjust for your active model
 
 
 def get_state_file(session_id: str) -> str:
     """Get temp file path for storing pre-message token count, isolated by session."""
-    return os.path.join(tempfile.gettempdir(), f"claude-context-{session_id}.json")
+    return os.path.join(tempfile.gettempdir(), f"codex-context-{session_id}.json")
 
 
 def count_tokens(text: str) -> int:
     """
     Count tokens using tiktoken with p50k_base encoding.
 
-    This provides ~90-95% accuracy compared to Claude's actual tokenizer.
+    This provides an approximate token estimate for Codex/OpenAI text.
     Falls back to character estimation if tiktoken is not available.
 
-    Note: Anthropic hasn't released an official offline tokenizer.
-    tiktoken with p50k_base is a reasonable approximation since both
-    Claude and GPT models use BPE (byte-pair encoding).
+    Note: this is still an approximation. Use it for rough tracking, not billing.
     """
     if TIKTOKEN_AVAILABLE:
         enc = tiktoken.get_encoding("p50k_base")

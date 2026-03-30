@@ -22,7 +22,7 @@ What should happen?
 What actually happened?
 
 ## Environment
-- **Claude Code Version**: (e.g., 1.0.5)
+- **Codex Version**: (e.g., 0.31.0)
 - **Operating System**: (e.g., macOS 14.1, Ubuntu 22.04, Windows 11)
 - **Python Version**: (if relevant, e.g., 3.11)
 - **Affected Component**: (e.g., 01-slash-commands, 03-skills, etc.)

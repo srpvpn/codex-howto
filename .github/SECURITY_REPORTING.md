@@ -1,10 +1,10 @@
 # Security Vulnerability Reporting
 
-This file explains how to report security vulnerabilities to the Claude How To project.
+This file explains how to report security vulnerabilities to the Codex How-To project.
 
 ## Quick Links
 
-- **Private Reporting**: https://github.com/luongnv89/claude-howto/security/advisories
+- **Private Reporting**: https://github.com/srpvpn/codex-howto/security/advisories
 - **Security Policy**: [SECURITY.md](../SECURITY.md)
 - **Report Template**: See below
 
@@ -15,7 +15,7 @@ This file explains how to report security vulnerabilities to the Claude How To p
 This is the preferred method for reporting security vulnerabilities.
 
 **Steps:**
-1. Go to: https://github.com/luongnv89/claude-howto/security/advisories
+1. Go to: https://github.com/srpvpn/codex-howto/security/advisories
 2. Click "Report a vulnerability"
 3. Fill in the details (use template below)
 4. Submit
@@ -30,7 +30,7 @@ This is the preferred method for reporting security vulnerabilities.
 
 If you discover a vulnerability in a dependency:
 
-1. Go to: https://github.com/luongnv89/claude-howto/security/dependabot/alerts
+1. Go to: https://github.com/srpvpn/codex-howto/security/dependabot/alerts
 2. Review the alert
 3. Create a pull request with the fix
 4. Tag with `security` label
@@ -178,7 +178,7 @@ We accept reports on:
 
 We do NOT accept reports on:
 
-- Vulnerabilities in Claude Code itself (contact Anthropic)
+- Vulnerabilities in Codex itself (report through OpenAI channels)
 - Vulnerabilities in external services
 - Theoretical vulnerabilities without proof
 - Issues already reported to upstream projects

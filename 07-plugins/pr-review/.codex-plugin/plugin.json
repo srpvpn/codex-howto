@@ -1,0 +1,10 @@
+{
+  "name": "pr-review",
+  "version": "1.0.0",
+  "description": "Complete PR review workflow with security, testing, and docs",
+  "skills": "./skills",
+  "author": {
+    "name": "Codex How-To Contributors"
+  },
+  "license": "MIT"
+}

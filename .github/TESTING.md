@@ -1,6 +1,6 @@
 # Testing Guide
 
-This document describes the testing infrastructure for Claude How To.
+This document describes the testing infrastructure for Codex How-To.
 
 ## Overview
 
@@ -28,8 +28,8 @@ brew install uv
 
 ```bash
 # Clone the repository
-git clone https://github.com/luongnv89/claude-howto.git
-cd claude-howto
+git clone https://github.com/srpvpn/codex-howto.git
+cd codex-howto
 
 # Create virtual environment
 uv venv
@@ -40,7 +40,7 @@ source .venv/bin/activate  # macOS/Linux
 .venv\Scripts\activate     # Windows
 
 # Install development dependencies
-uv pip install -r requirements-dev.txt
+uv pip install -r scripts/requirements-dev.txt
 ```
 
 ### Run Tests
@@ -82,10 +82,10 @@ ruff check --fix scripts/
 
 ```bash
 # Run Bandit security scan
-bandit -c pyproject.toml -r scripts/ --exclude scripts/tests/
+bandit -c scripts/pyproject.toml -r scripts/ --exclude scripts/tests/
 
 # Generate JSON report
-bandit -c pyproject.toml -r scripts/ --exclude scripts/tests/ -f json -o bandit-report.json
+bandit -c scripts/pyproject.toml -r scripts/ --exclude scripts/tests/ -f json -o bandit-report.json
 ```
 
 ### Run Type Checking

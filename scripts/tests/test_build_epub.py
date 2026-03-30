@@ -88,10 +88,10 @@ class TestEPUBConfig:
             root_path=tmp_path,
             output_path=tmp_path / "out.epub",
         )
-        assert config.identifier == "claude-howto-guide"
-        assert config.title == "Claude Code How-To Guide"
+        assert config.identifier == "codex-howto-guide"
+        assert config.title == "Codex How-To Guide"
         assert config.language == "en"
-        assert config.author == "Claude Code Community"
+        assert config.author == "Codex How-To Contributors"
         assert config.request_timeout == 30.0
         assert config.max_concurrent_requests == 10
         assert config.max_retries == 3
@@ -351,8 +351,10 @@ class TestChapterOrder:
 
         # Check that all expected chapters are present
         chapter_names = [name for name, _ in order]
+        assert "10-cli" in chapter_names
         assert "01-slash-commands" in chapter_names
-        assert "02-memory" in chapter_names
+        assert "02-agents-md" in chapter_names
+        assert "08-safe-iteration" in chapter_names
         assert "resources.md" in chapter_names
 
 

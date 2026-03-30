@@ -1,6 +1,6 @@
 ---
 name: Question
-about: Ask a question about Claude Code or this guide
+about: Ask a question about Codex or this guide
 title: "[QUESTION] "
 labels: question
 assignees: ''
@@ -19,13 +19,13 @@ Provide some background or context for your question:
 ## Relevant Topic
 Which topic is this related to?
 - [ ] Slash Commands
-- [ ] Memory
+- [ ] AGENTS.md
 - [ ] Skills
 - [ ] Subagents
 - [ ] MCP Protocol
 - [ ] Hooks
 - [ ] Plugins
-- [ ] Checkpoints
+- [ ] Safe Iteration
 - [ ] Advanced Features
 - [ ] CLI Reference
 - [ ] Other

@@ -1,91 +1,26 @@
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="../../resources/logos/claude-howto-logo-dark.svg">
-  <img alt="Claude How To" src="../../resources/logos/claude-howto-logo.svg">
-</picture>
-
 # PR Review Plugin
 
-Complete PR review workflow with security, testing, and documentation checks.
+Repo-local plugin example for Codex review workflows.
 
-## Features
+## Current Codex-aligned structure
 
-✅ Security analysis
-✅ Test coverage checking
-✅ Documentation verification
-✅ Code quality assessment
-✅ Performance impact analysis
+- manifest: `.codex-plugin/plugin.json`
+- plugin skills and assets stay at the plugin root
+- any marketplace wiring belongs in `.agents/plugins/marketplace.json`
 
-## Installation
+## Intent
 
-```bash
-/plugin install pr-review
-```
+This plugin is an example bundle for:
 
-## What's Included
+- local review workflows
+- security-focused review prompts
+- test-gap checks
+- GitHub-backed review context through MCP
 
-### Slash Commands
-- `/review-pr` - Comprehensive PR review
-- `/check-security` - Security-focused review
-- `/check-tests` - Test coverage analysis
+The actual review entrypoints should be implemented as:
 
-### Subagents
-- `security-reviewer` - Security vulnerability detection
-- `test-checker` - Test coverage analysis
-- `performance-analyzer` - Performance impact evaluation
+- bundled skills
+- optional MCP config
+- optional app config
 
-### MCP Servers
-- GitHub integration for PR data
-
-### Hooks
-- `pre-review.js` - Pre-review validation
-
-## Usage
-
-### Basic PR Review
-```
-/review-pr
-```
-
-### Security Check Only
-```
-/check-security
-```
-
-### Test Coverage Check
-```
-/check-tests
-```
-
-## Requirements
-
-- Claude Code 1.0+
-- GitHub access
-- Git repository
-
-## Configuration
-
-Set up your GitHub token:
-```bash
-export GITHUB_TOKEN="your_github_token"
-```
-
-## Example Workflow
-
-```
-User: /review-pr
-
-Claude:
-1. Runs pre-review hook (validates git repo)
-2. Fetches PR data via GitHub MCP
-3. Delegates security review to security-reviewer subagent
-4. Delegates testing to test-checker subagent
-5. Delegates performance to performance-analyzer subagent
-6. Synthesizes all findings
-7. Provides comprehensive review report
-
-Result:
-✅ Security: No critical issues found
-⚠️  Testing: Coverage is 65%, recommend 80%+
-✅ Performance: No significant impact
-📝 Recommendations: Add tests for edge cases
-```
+Use the main plugin docs in [../README.md](/home/mike/pl/codex-howto/07-plugins/README.md) as the source of truth for layout.

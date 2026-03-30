@@ -19,12 +19,12 @@ import sys
 import tempfile
 
 # Configuration
-CONTEXT_LIMIT = 128000  # Claude's context window (adjust for your model)
+CONTEXT_LIMIT = 128000  # Example context budget; adjust for your active model
 
 
 def get_state_file(session_id: str) -> str:
     """Get temp file path for storing pre-message token count, isolated by session."""
-    return os.path.join(tempfile.gettempdir(), f"claude-context-{session_id}.json")
+    return os.path.join(tempfile.gettempdir(), f"codex-context-{session_id}.json")
 
 
 def count_tokens_estimate(text: str) -> int:

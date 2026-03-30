@@ -25,7 +25,7 @@ What should reviewers focus on?
 
 ## Testing
 How have you tested this?
-- [ ] Tested locally with Claude Code
+- [ ] Tested locally with Codex
 - [ ] Verified examples work
 - [ ] Checked links and references
 - [ ] Reviewed for typos and clarity

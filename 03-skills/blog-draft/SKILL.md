@@ -5,11 +5,7 @@ description: Draft a blog post from ideas and resources. Use when users want to 
 
 ## User Input
 
-```text
-$ARGUMENTS
-```
-
-You **MUST** consider the user input before proceeding. User should provide:
+Use the user's request text directly before proceeding. User should provide:
 - **Idea/Topic**: The main concept or theme for the blog post
 - **Resources**: URLs, files, or references to research (optional but recommended)
 - **Target audience**: Who the blog post is for (optional)
